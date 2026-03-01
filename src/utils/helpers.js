@@ -1,3 +1,6 @@
+export const placeholderImage = (text = 'Product', w = 400, h = 300) =>
+  `https://placehold.co/${w}x${h}/e5e7eb/9ca3af?text=${encodeURIComponent(text)}`;
+
 export const formatPrice = (price) =>
   new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(price);
 

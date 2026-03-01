@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { FaShoppingCart } from 'react-icons/fa';
 import StarRating from '../common/StarRating';
 import { useCart } from '../../hooks/useCart';
-import { formatPrice } from '../../utils/helpers';
+import { formatPrice, placeholderImage } from '../../utils/helpers';
 
 export default function ProductCard({ product }) {
   const { addToCart } = useCart();
@@ -14,7 +14,7 @@ export default function ProductCard({ product }) {
     <div className="bg-white rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden group border border-gray-100">
       <Link to={`/products/${product._id}`} className="block relative overflow-hidden">
         <img
-          src={product.images?.[0] || product.image || `https://placehold.co/400x300/e5e7eb/9ca3af?text=${encodeURIComponent(product.name)}`}
+          src={product.images?.[0] || product.image || placeholderImage(product.name)}
           alt={product.name}
           className="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-300"
         />

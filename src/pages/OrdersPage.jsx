@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FaBox, FaArrowRight } from 'react-icons/fa';
 import { getOrders } from '../api/orderApi';
-import { formatPrice, formatDate, getOrderStatusColor } from '../utils/helpers';
+import { formatPrice, formatDate, getOrderStatusColor, placeholderImage } from '../utils/helpers';
 import Spinner from '../components/common/Spinner';
 import EmptyState from '../components/common/EmptyState';
 
@@ -49,7 +49,7 @@ export default function OrdersPage() {
               </div>
               {order.items?.slice(0, 2).map((item, i) => (
                 <div key={i} className="flex items-center gap-2 mt-3 text-sm text-gray-600">
-                  <img src={item.product?.images?.[0] || item.product?.image || `https://placehold.co/40x40/e5e7eb/9ca3af`} alt="" className="w-8 h-8 rounded-lg object-cover" />
+                  <img src={item.product?.images?.[0] || item.product?.image || placeholderImage('', 40, 40)} alt="" className="w-8 h-8 rounded-lg object-cover" />
                   <span>{item.product?.name || 'Product'} × {item.quantity}</span>
                 </div>
               ))}

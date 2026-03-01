@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { FaArrowLeft, FaExclamationTriangle } from 'react-icons/fa';
 import { getOrder, cancelOrder } from '../api/orderApi';
-import { formatPrice, formatDate, getOrderStatusColor } from '../utils/helpers';
+import { formatPrice, formatDate, getOrderStatusColor, placeholderImage } from '../utils/helpers';
 import Spinner from '../components/common/Spinner';
 import toast from 'react-hot-toast';
 
@@ -90,7 +90,7 @@ export default function OrderDetailPage() {
           <div className="divide-y divide-gray-100">
             {order.items?.map((item, i) => (
               <div key={i} className="flex items-center gap-4 py-3">
-                <img src={item.product?.images?.[0] || item.product?.image || `https://placehold.co/64x64/e5e7eb/9ca3af`} alt={item.product?.name} className="w-16 h-16 object-cover rounded-xl border border-gray-200" />
+                <img src={item.product?.images?.[0] || item.product?.image || placeholderImage('', 64, 64)} alt={item.product?.name} className="w-16 h-16 object-cover rounded-xl border border-gray-200" />
                 <div className="flex-1">
                   <p className="font-semibold text-gray-900">{item.product?.name || 'Product'}</p>
                   <p className="text-sm text-gray-500">Qty: {item.quantity} × {formatPrice(item.price)}</p>

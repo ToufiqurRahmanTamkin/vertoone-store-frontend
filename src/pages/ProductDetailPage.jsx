@@ -5,7 +5,7 @@ import StarRating from '../components/common/StarRating';
 import Spinner from '../components/common/Spinner';
 import { getProduct } from '../api/productApi';
 import { useCart } from '../hooks/useCart';
-import { formatPrice, formatDate } from '../utils/helpers';
+import { formatPrice, formatDate, placeholderImage } from '../utils/helpers';
 import toast from 'react-hot-toast';
 
 export default function ProductDetailPage() {
@@ -56,7 +56,7 @@ export default function ProductDetailPage() {
         <div>
           <div className="bg-white rounded-2xl overflow-hidden border border-gray-200 mb-4">
             <img
-              src={images[activeImage] || `https://placehold.co/600x500/e5e7eb/9ca3af?text=${encodeURIComponent(product.name)}`}
+              src={images[activeImage] || placeholderImage(product.name, 600, 500)}
               alt={product.name}
               className="w-full h-96 object-contain p-4"
             />

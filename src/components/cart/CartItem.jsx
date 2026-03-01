@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { FaTrash, FaMinus, FaPlus } from 'react-icons/fa';
 import { useCart } from '../../hooks/useCart';
-import { formatPrice } from '../../utils/helpers';
+import { formatPrice, placeholderImage } from '../../utils/helpers';
 
 export default function CartItem({ item }) {
   const { updateQuantity, removeFromCart } = useCart();
@@ -12,7 +12,7 @@ export default function CartItem({ item }) {
     <div className="flex items-center gap-4 py-4 border-b border-gray-100 last:border-0">
       <Link to={`/products/${product._id}`} className="shrink-0">
         <img
-          src={product.images?.[0] || product.image || `https://placehold.co/80x80/e5e7eb/9ca3af?text=Img`}
+          src={product.images?.[0] || product.image || placeholderImage('Img', 80, 80)}
           alt={product.name}
           className="w-20 h-20 object-cover rounded-xl border border-gray-200"
         />
