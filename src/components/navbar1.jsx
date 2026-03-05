@@ -34,9 +34,7 @@ const auth = {
 
 const Navbar1 = ({ className }) => {
 	const [search, setSearch] = useState("");
-
 	const [mobileOpen, setMobileOpen] = useState(false);
-	console.log(mobileOpen);
 	const navigate = useNavigate();
 	const handleSearch = (e) => {
 		e.preventDefault();
