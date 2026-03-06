@@ -33,7 +33,7 @@ const auth = {
 	signup: { title: "Sign up", url: "/register" }
 };
 
-const Navbar1 = ({ className }) => {
+const Navbar = ({ className }) => {
 	const [search, setSearch] = useState("");
 	const [mobileOpen, setMobileOpen] = useState(false);
 	const navigate = useNavigate();
@@ -210,5 +210,5 @@ const SearchBar = ({ search, setSearch, handleSearch, classNames }) => {
 	);
 };
 
-export { Navbar1 };
+export { Navbar };
 

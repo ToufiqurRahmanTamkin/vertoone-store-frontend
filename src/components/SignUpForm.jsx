@@ -59,6 +59,7 @@ export function SignupForm({ className, ...props }) {
 											align="inline-end"
 											variant="outline"
 											type="button"
+											title={passwordVisibility.password ? "Hide password" : "Show password"}
 										>
 											{passwordVisibility.password ? <EyeOffIcon /> : <EyeIcon />}
 										</Button>
@@ -77,6 +78,7 @@ export function SignupForm({ className, ...props }) {
 											align="inline-end"
 											variant="outline"
 											type="button"
+											title={passwordVisibility.confirmPassword ? "Hide password" : "Show password"}
 										>
 											{passwordVisibility.confirmPassword ? <EyeOffIcon /> : <EyeIcon />}
 										</Button>

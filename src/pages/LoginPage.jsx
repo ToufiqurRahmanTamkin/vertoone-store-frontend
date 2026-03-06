@@ -31,7 +31,7 @@ export function LoginPage({ className, ...props }) {
 							</div>
 							<Field>
 								<FieldLabel htmlFor="email">Email</FieldLabel>
-								<Input id="email" type="email" placeholder="m@example.com" required />
+								<Input id="email" type="email" placeholder="Enter email" required />
 							</Field>
 							<Field>
 								<FieldLabel htmlFor="inline-end-input">Password</FieldLabel>
@@ -41,7 +41,13 @@ export function LoginPage({ className, ...props }) {
 										type={showPassword ? "text" : "password"}
 										placeholder="Enter password"
 									/>
-									<Button onClick={togglePasswordVisibility} align="inline-end" variant="outline" type="button">
+									<Button
+										onClick={togglePasswordVisibility}
+										align="inline-end"
+										variant="outline"
+										type="button"
+										title={showPassword ? "Hide password" : "Show password"}
+									>
 										{showPassword ? <EyeOffIcon /> : <EyeIcon />}
 									</Button>
 								</InputGroup>
