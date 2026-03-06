@@ -2,10 +2,23 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Field, FieldDescription, FieldGroup, FieldLabel, FieldSeparator } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
+import { InputGroup, InputGroupAddon, InputGroupInput } from "@/components/ui/input-group";
 import { cn } from "@/lib/utils";
+import { EyeIcon, EyeOffIcon } from "lucide-react";
+import { useState } from "react";
 import sideImg from "../assets/fashion.jpg";
 
 export function SignupForm({ className, ...props }) {
+	const [passwordVisibility, setPasswordVisibility] = useState({
+		password: false,
+		confirmPassword: false
+	});
+	const togglePasswordVisibility = (field) => {
+		setPasswordVisibility((prev) => ({
+			...prev,
+			[field]: !prev[field]
+		}));
+	};
 	return (
 		<div className={cn("flex flex-col px-2 gap-6 max-w-6xl mx-auto py-14", className)} {...props}>
 			<Card className="overflow-hidden p-0">
@@ -33,15 +46,41 @@ export function SignupForm({ className, ...props }) {
 								</FieldDescription>
 							</Field>
 							<Field>
-								<Field className="grid grid-cols-2 gap-4">
-									<Field>
-										<FieldLabel htmlFor="password">Password</FieldLabel>
-										<Input id="password" type="password" required />
-									</Field>
-									<Field>
-										<FieldLabel htmlFor="confirm-password">Confirm Password</FieldLabel>
-										<Input id="confirm-password" type="password" required />
-									</Field>
+								<Field>
+									<FieldLabel htmlFor="inline-end-input">Password</FieldLabel>
+									<InputGroup>
+										<InputGroupInput
+											id="inline-end-input"
+											type={passwordVisibility.password ? "text" : "password"}
+											placeholder="Enter password"
+										/>
+										<Button
+											onClick={() => togglePasswordVisibility("password")}
+											align="inline-end"
+											variant="outline"
+											type="button"
+										>
+											{passwordVisibility.password ? <EyeOffIcon /> : <EyeIcon />}
+										</Button>
+									</InputGroup>
+								</Field>
+								<Field>
+									<FieldLabel htmlFor="confirm-password">Confirm Password</FieldLabel>
+									<InputGroup>
+										<InputGroupInput
+											id="confirm-password"
+											type={passwordVisibility.confirmPassword ? "text" : "password"}
+											placeholder="Confirm password"
+										/>
+										<Button
+											onClick={() => togglePasswordVisibility("confirmPassword")}
+											align="inline-end"
+											variant="outline"
+											type="button"
+										>
+											{passwordVisibility.confirmPassword ? <EyeOffIcon /> : <EyeIcon />}
+										</Button>
+									</InputGroup>
 								</Field>
 								<FieldDescription>Must be at least 8 characters long.</FieldDescription>
 							</Field>
