@@ -1,6 +1,6 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Layout from "./components/layout/Layout";
-import { SignupForm } from "./components/signup-form";
+import { SignupForm } from "./components/SignUpForm";
 import { AuthProvider } from "./context/AuthContext";
 import { CartProvider } from "./context/CartContext";
 import { useAuth } from "./hooks/useAuth";
